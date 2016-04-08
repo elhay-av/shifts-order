@@ -1,13 +1,21 @@
-<md-toolbar layout="row" layout-align="center center">
+<md-sidenav layout-align="right" layout="column" class="md-sidenav-right" md-is-locked-open="$mdMedia('gt-sm')"
+            md-component-id="right">
+  <md-toolbar class="md-theme-indigo">
+    <div layout="row" layout-align="end center">
+      <div layout="column">
+        <md-button class="md-icon-button md-primary" aria-label="Settings" ui-sref="home.settings">
+          <md-icon md-font-icon="material-icons" ng-style="{color: 'white'}">
+            settings
+          </md-icon>
+        </md-button>
+      </div>
+    </div>
 
-  <md-button href="https://github.com/Swiip/generator-gulp-angular">Gulp Angular</md-button>
-
-  <section flex layout="row" layout-align="left center">
-    <md-button href="#" class="md-raised">Home</md-button>
-    <md-button href="#" class="md-raised">About</md-button>
-    <md-button href="#" class="md-raised">Contact</md-button>
-  </section>
-
-  <md-button class="acme-navbar-text">Application was created {{ vm.relativeDate }}.</md-button>
-
-</md-toolbar>
+  </md-toolbar>
+  <md-content layout-padding>
+    <p >
+      This sidenav is locked open on your device. To go back to the default behavior,
+      narrow your display.
+    </p>
+  </md-content>
+</md-sidenav>
