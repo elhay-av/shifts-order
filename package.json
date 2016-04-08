@@ -58,6 +58,7 @@
     "uglify-save-license": "~0.4.1",
     "wrench": "~1.5.8"
   },
+  "license": "MIT",
   "engines": {
     "node": ">=0.10.0"
   }
