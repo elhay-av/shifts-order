@@ -1,5 +1,5 @@
 {
-  "name": "shiftApp",
+  "name": "shiftsOrder",
   "version": "0.0.0",
   "dependencies": {
     "electron-json-storage": "^2.0.0"

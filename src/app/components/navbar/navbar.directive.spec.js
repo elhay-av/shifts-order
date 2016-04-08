@@ -8,7 +8,7 @@ describe('directive navbar', function() {
   let element;
   let timeInMs;
 
-  beforeEach(angular.mock.module('shiftApp'));
+  beforeEach(angular.mock.module('shiftsOrder'));
 
   beforeEach(inject(($compile, $rootScope) => {
     const currentDate = new Date();

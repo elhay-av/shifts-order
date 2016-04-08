@@ -47,7 +47,7 @@ module.exports = function(config) {
 
     ngHtml2JsPreprocessor: {
       stripPrefix: conf.paths.src + '/',
-      moduleName: 'shiftApp'
+      moduleName: 'shiftsOrder'
     },
 
     logLevel: 'WARN',

@@ -1,5 +1,5 @@
 describe('service webDevTec', () => {
-  beforeEach(angular.mock.module('shiftApp'));
+  beforeEach(angular.mock.module('shiftsOrder'));
 
   it('should be registered', inject(webDevTec => {
     expect(webDevTec).not.toEqual(null);
