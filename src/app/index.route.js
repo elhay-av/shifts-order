@@ -1,4 +1,4 @@
-export function routerConfig ($stateProvider, $urlRouterProvider) {
+export function routerConfig ($stateProvider, $urlRouterProvider, moment) {
   'ngInject';
   $stateProvider
     .state('home', {
@@ -8,10 +8,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'main'
     })
     .state('home.shift', {
-      url: 'shift',
+      url: 'shift/:date',
       templateUrl: 'app/views/shift/shift.html',
       controller: 'ShiftController',
-      controllerAs: 'shift'
+      controllerAs: 'shiftCtrl'
     })
     .state('home.settings', {
       url: 'settings',
@@ -20,5 +20,5 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'settings'
     });
 
-  $urlRouterProvider.otherwise('/shift');
+  $urlRouterProvider.otherwise('/shift/' + moment().format('MM-DD-YYYY'));
 }
