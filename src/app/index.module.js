@@ -20,9 +20,9 @@ angular.module('shiftsOrder', [
   'LocalStorageModule'
 ])
   .constant('moment', moment)
+  .constant('fileStorage', (typeof storage !== 'undefined')? storage: false)
   .config(config)
   .config(routerConfig)
-  .constant('fileStorage', (typeof storage !== 'undefined')? storage: false)
   .run(runBlock)
   .service('Storage', Storage)
   .controller('MainController', MainController)

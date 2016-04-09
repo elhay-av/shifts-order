@@ -16,7 +16,6 @@
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
     "angular": "~1.5.3",
-    "material-design-icons": "^2.2.3",
     "angular-local-storage": "^0.2.7"
   },
   "devDependencies": {
@@ -31,11 +30,6 @@
       "main": [
         "moment.js",
         "locale/he.js"
-      ]
-    },
-    "material-design-icons": {
-      "main": [
-        "iconfont/material-icons.css"
       ]
     }
   }

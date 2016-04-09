@@ -21,19 +21,36 @@ export class Storage {
       }
     };
     this.getFromFile = (key, defer) => {
-      this.Storage.get(localPrefix + '.' + key, function (err, data) {
+      let that = this;
+      this.Storage.has(localPrefix + '.' +key, function(err, hasKey) {
         if (err) {
           $log.error('Get from file, ', key, err);
           defer.reject(err);
+          return;
         }
-        defer.resolve(data);
+
+        if (hasKey) {
+          that.Storage.get(localPrefix + '.' + key, function (err, data) {
+            if (err || !data) {
+              $log.error('Get from file, ', key, err, data);
+              defer.reject(err);
+              return;
+            }
+
+            defer.resolve(data);
+          });
+
+          return;
+        }
+        defer.resolve();
       });
+
     };
     this.getFromLocal = (key, defer) => {
       defer.resolve(this.Storage.get(key));
     };
 
-    this.setkey = (key, defer, data) => {
+    this.setKey = (key, defer, data) => {
       if (this.storageProvider === 'file') {
         this.setFromFile(key, defer, data)
       }
@@ -43,12 +60,14 @@ export class Storage {
       }
     };
     this.setFromFile = (key, defer, data) => {
-      this.Storage.set(localPrefix + '-' + key, data, function (err, data) {
+      this.Storage.set(localPrefix + '.' + key, data, function (err) {
         if (err) {
           $log.error('Set to file, ', key, err);
           defer.reject(err);
+          return;
         }
-        defer.resolve(data);
+
+        defer.resolve();
       });
     };
     this.setFromLocal = (key, defer, data) => {
@@ -76,7 +95,7 @@ export class Storage {
         that.setShifts(defaultShifts);
       }
     }, function (err) {
-      that.$log.log('Setting default employees after error', err);
+      that.$log.error('Setting default employees after error', err);
       that.setShifts(defaultShifts);
     })
   }
@@ -87,7 +106,7 @@ export class Storage {
         that.setEmployees(defaultEmployees);
       }
     }, function (err) {
-      that.$log.log('Setting default employees after error', err);
+      that.$log.error('Setting default employees after error', err);
       that.setEmployees(defaultEmployees);
     })
   }
@@ -111,7 +130,7 @@ export class Storage {
     let that = this;
     return new Promise(function(resolve, reject){
       let defer = {resolve, reject};
-      that.setkey('Shifts', defer, data);
+      that.setKey('Shifts', defer, data);
     });
   }
 
@@ -134,7 +153,7 @@ export class Storage {
     let that = this;
     return new Promise(function(resolve, reject){
       let defer = {resolve, reject};
-      that.setkey('Employees', defer, data);
+      that.setKey('Employees', defer, data);
     });
   }
 
@@ -151,7 +170,7 @@ export class Storage {
     let that = this;
     return new Promise(function(resolve, reject){
       let defer = {resolve, reject};
-      that.setkey('Date', defer, data);
+      that.setKey('Date', defer, data);
     });
   }
 }
