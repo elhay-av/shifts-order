@@ -17,7 +17,8 @@ angular.module('shiftsOrder', [
   'ui.router',
   'ngMaterial',
   'toastr',
-  'LocalStorageModule'
+  'LocalStorageModule',
+  'pascalprecht.translate'
 ])
   .constant('moment', moment)
   .constant('fileStorage', (typeof storage !== 'undefined')? storage: false)

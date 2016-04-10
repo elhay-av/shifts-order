@@ -1,4 +1,9 @@
+/* globals window:false, require:false */
 /* Allow to work with electron API */
-window.storage = require('electron-json-storage');
-window.remote = require('remote');
-window.app = remote.app;
+var storage = require('electron-json-storage');
+var remote = require('remote');
+var app = remote.app;
+
+window.storage = storage;
+window.remote = remote;
+window.app = app;
