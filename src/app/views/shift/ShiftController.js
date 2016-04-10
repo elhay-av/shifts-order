@@ -1,22 +1,22 @@
 export class ShiftController {
-  constructor (Storage, $stateParams) {
+  constructor (Storage, $stateParams, $timeout) {
     'ngInject';
 
     this.theDate = $stateParams.date;
     this.shifts = {};
     this.employees = {};
 
-    this.init(Storage);
+    this.init(Storage, $timeout);
   }
-  init(Storage) {
+  init(Storage, $timeout) {
     let that = this;
     Storage.getEmployees().then(function(data){
-      that.employees = data;
+      $timeout(() => that.employees = data);
     });
     Storage.getShifts().then(function(shifts){
 
       Storage.getDate(that.theDate).then(function(date){
-        that.shifts = that.combineShifts(shifts, date);
+        $timeout(() => that.shifts = that.combineShifts(shifts, date));
       });
     });
   }
