@@ -34,7 +34,7 @@ export function config (
     return (i18Supports.indexOf( navigatorLang() ) > -1)? navigatorLang(): i18Supports[0];
   });
   $translateProvider.use($translateProvider.preferredLanguage());
-  $translateProvider.useSanitizeValueStrategy('sanitize');
+  $translateProvider.useSanitizeValueStrategy('');
 
   moment.locale($translateProvider.use());
 
