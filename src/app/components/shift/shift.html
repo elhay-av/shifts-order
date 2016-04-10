@@ -2,28 +2,36 @@
   <md-card-header>
     <md-card-header-text>
       <span class="md-title">{{shift.title}}</span>
-      <span class="md-subhead">{{shift.houers}} houers</span>
+      <span class="md-subhead">{{shift.hours}} {{HOURS | translate}}</span>
     </md-card-header-text>
   </md-card-header>
 
   <md-card-content>
-    <div ng-repeat="curentShift in shift.order" layout="row" layout-fill>
+    <div ng-repeat="curentShiftEmployee in shift.order" class="show-on-hover-chileds" layout="row" layout-fill>
       <md-input-container flex="40">
-        <label>Name</label>
-        <input type="text" ng-model="curentShift.name">
+        <label translate="NAME"></label>
+        <input type="text" ng-model="curentShiftEmployee.name" ng-change="shiftCtrl.onDataChange()">
       </md-input-container>
       <md-input-container flex="40">
-        <label>Location</label>
-        <textarea ng-model="curentShift.location"></textarea>
+        <label translate="LOCATION"></label>
+        <textarea ng-model="curentShiftEmployee.location" ng-change="shiftCtrl.onDataChange()"></textarea>
       </md-input-container>
-      <md-input-container flex="20">
-        <label>Houers</label>
-        <textarea ng-model="curentShift.houers"></textarea>
+      <md-input-container flex="10">
+        <label translate="HOURS"></label>
+        <textarea ng-model="curentShiftEmployee.hours" ng-change="shiftCtrl.onDataChange()"></textarea>
+
       </md-input-container>
+      <div flex="10" class="show-on-parent-hover">
+        <md-button class="md-warn md-icon-button" aria-label="More" ng-click="shiftCtrl.removeEmployee(shift.order, $index)">
+          <md-icon md-font-icon="material-icons">
+            delete
+          </md-icon>
+        </md-button>
+      </div>
     </div>
   </md-card-content>
   <md-card-actions layout="row" layout-align="end center">
-    <md-button class="md-fab md-primary" aria-label="Eat cake">
+    <md-button class="md-fab md-primary" aria-label="Add Employee" ng-click="shiftCtrl.addEmployee(shift.order)">
       <md-icon md-font-icon="material-icons" ng-style="{color: 'white'}">
         person_add
       </md-icon>

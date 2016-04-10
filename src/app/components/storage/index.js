@@ -166,11 +166,11 @@ export class Storage {
       that.getKey('Date-'+date, defer);
     });
   }
-  setDate(data) {
+  setDate(data, date) {
     let that = this;
     return new Promise(function(resolve, reject){
       let defer = {resolve, reject};
-      that.setKey('Date', defer, data);
+      that.setKey('Date-'+date, defer, data);
     });
   }
 }

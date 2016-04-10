@@ -46,6 +46,19 @@ html {
   font-family: 'Roboto Slab', serif;
 }
 
+.show-on-hover-chileds {
+  &:hover {
+    .show-on-parent-hover {
+      pointer-events: all;
+      opacity: .4;
+    }
+  }
+  .show-on-parent-hover {
+    transition: linear opacity .15s;
+    pointer-events: none;
+    opacity: 0;
+  }
+}
 [layout=row] {
   flex-direction: row;
 }
