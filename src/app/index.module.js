@@ -18,10 +18,37 @@ angular.module('shiftsOrder', [
   'ngMaterial',
   'toastr',
   'LocalStorageModule',
-  'pascalprecht.translate'
+  'pascalprecht.translate',
+  'scDateTime'
 ])
+  .value('scDateTimeConfig', {
+    defaultTheme: 'material',
+    autosave: true,
+    defaultMode: 'date',
+    defaultDate: undefined,
+    displayMode: 'date',
+    defaultOrientation: true,
+    displayTwentyfour: false,
+    compact: true
+  })
+  .value('scDateTimeI18n', {
+    previousMonth: "Previous Month",
+    nextMonth: "Next Month",
+    incrementHours: "Increment Hours",
+    decrementHours: "Decrement Hours",
+    incrementMinutes: "Increment Minutes",
+    decrementMinutes: "Decrement Minutes",
+    switchAmPm: "Switch AM/PM",
+    now: "Now",
+    cancel: "Cancel",
+    save: "Save",
+    weekdays: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    switchTo: 'Switch to',
+    clock: 'Clock',
+    calendar: 'Calendar'
+  })
   .constant('moment', moment)
-  .constant('fileStorage', (typeof storage !== 'undefined')? storage: false)
+  .constant('fileStorage', (typeof storage !== 'undefined') ? storage : false)
   .config(config)
   .config(routerConfig)
   .run(runBlock)

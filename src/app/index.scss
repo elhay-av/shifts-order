@@ -1,9 +1,12 @@
+$fa-font-path: '../../bower_components/font-awesome/fonts/';
 /**
  *  Do not remove the comment below. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies
  */
 // bower:scss
 // endbower
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 
 @font-face {
   font-family: 'Material Icons';
@@ -44,6 +47,19 @@
 
 html {
   font-family: 'Roboto Slab', serif;
+}
+
+// Override material design sideBar width
+body md-sidenav {
+  width: auto;
+
+  .time-date > .control > .slider {
+    width: 100%;
+  }
+  .time-date.date-only > .control > .slider > .date-control {
+    width: 100%;
+    padding: 0;
+  }
 }
 
 .show-on-hover-chileds {
