@@ -5,14 +5,20 @@ const navigatorLang = () => {
   return navigator.language.split('-')[0];
 };
 
+import './i18n/angular-locale_he-il.js';
+
 export function config (
   $logProvider,
   toastrConfig,
   localStorageServiceProvider,
   moment,
-  $translateProvider
+  $translateProvider,
+  $mdThemingProvider
 ) {
   'ngInject';
+  $mdThemingProvider.theme('default')
+    .primaryPalette('teal');
+
   // Enable log
   $logProvider.debugEnabled(true);
 

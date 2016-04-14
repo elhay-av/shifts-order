@@ -3,16 +3,35 @@
   <md-toolbar class="md-theme-indigo">
     <div layout="row" layout-align="end center">
       <div layout="column">
-        <md-button class="md-icon-button md-primary" aria-label="Settings" ui-sref="home.settings">
+        <md-button class="md-icon-button md-primary" aria-label="Settings" ui-sref="home.settings"
+                   ng-hide="main.$state.includes('home.settings')">
           <md-icon md-font-icon="material-icons" ng-style="{color: 'white'}">
             settings
           </md-icon>
         </md-button>
+        <md-button class="md-icon-button md-primary" aria-label="Settings" ng-click="main.goToTodatyShift()"
+                   ng-hide="main.$state.includes('home.shift')">
+          <md-icon md-font-icon="material-icons" ng-style="{color: 'white'}">
+            arrow_back
+          </md-icon>
+        </md-button>
+      </div>
+    </div>
+    <div layout="row" layout-align="center center" class="sidebar-logo">
+      <div layout="column">
+        <img src="assets/images/logo.png" alt=""/>
       </div>
     </div>
 
   </md-toolbar>
-  <md-content layout-padding>
+  <md-content layout-padding class="no-padding">
     <time-date-picker ng-model="main.selectedDate.date"></time-date-picker>
+
+    <md-button class="md-fab md-lg md-primary no-print" aria-label="Print" ng-click="main.print()">
+      <md-icon md-font-icon="material-icons" ng-style="{fontSize: '48px', color: 'white'}">
+        print
+      </md-icon>
+    </md-button>
+
   </md-content>
 </md-sidenav>

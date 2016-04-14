@@ -44,9 +44,27 @@ $fa-font-path: '../../bower_components/font-awesome/fonts/';
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
-
+.md-fab.md-lg {
+  width: 112px;
+  height: 112px;
+}
+.no-padding {
+  padding: 0;
+}
 html {
   font-family: 'Roboto Slab', serif;
+}
+
+@page {
+  size: 840+840px 1188+1188px;
+}
+@media print {
+  body {
+    font-size: 10px;
+  }
+  .no-print {
+    display: none !important;
+  }
 }
 
 // Override material design sideBar width

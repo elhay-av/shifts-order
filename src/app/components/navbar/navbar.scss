@@ -11,7 +11,58 @@ h1 {
   margin: 0;
   line-height: 1.25em;
 }
-
 a:hover, a:focus {
   color: greenyellow;
+}
+.sidebar-logo {
+  img {
+    margin: 30px 0;
+  }
+}
+md-content .time-date {
+  padding: 0;
+
+  &:not(.full-mode).compact {
+    width: 21.8rem;
+  }
+  .full-title {
+    text-align: left;
+    font-size: 34px;
+    padding: 10px;
+  }
+  &:not(.full-mode).compact > .display {
+    display: block;
+    text-align: left;
+    & > .title {
+      color: rgba(255,255,255, .5);
+      padding-left: 10px;
+    }
+
+    & > .content {
+      display: none;
+    }
+  }
+  .date-control {
+    & > .title {
+      padding-left: 1.5rem;
+      width: 18rem;
+    }
+  }
+  .buttons {
+      padding-left: 1.5rem;
+      width: 18.5rem;
+  }
+  @media print {
+    .buttons {
+      display: none;
+    }
+  }
+}
+@media (max-width: 960px) {
+  .sidebar-logo {
+    img {
+      height: 70px;
+      width: auto;
+    }
+  }
 }
