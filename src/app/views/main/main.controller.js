@@ -9,7 +9,7 @@ export class MainController {
     this.selectedDate = {
       date: ($state.params.date)? new Date($state.params.date): new Date()
     };
-    this.$windowPrint = $window.print;
+    this.getWindow = () => $window;
 
     Object.assign(scDateTimeI18n, ($translate.use() === 'he') ? i18nHe.DATE_PICKER : i18nEn.DATE_PICKER);
     this.currentDate = moment(new Date($state.params.date)).format('YYYY DD MMMM');
@@ -27,7 +27,7 @@ export class MainController {
   }
 
   print() {
-    this.$windowPrint();
+    this.getWindow().print();
   }
 
 
