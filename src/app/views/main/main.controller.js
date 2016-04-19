@@ -12,7 +12,11 @@ export class MainController {
     this.getWindow = () => $window;
 
     Object.assign(scDateTimeI18n, ($translate.use() === 'he') ? i18nHe.DATE_PICKER : i18nEn.DATE_PICKER);
-    this.currentDate = moment(new Date($state.params.date)).format('YYYY DD MMMM');
+    if($state.params.date) {
+      this.currentDate = moment(new Date($state.params.date)).format('YYYY DD MMMM');
+    } else {
+      this.currentDate = moment(new Date()).format('YYYY DD MMMM');
+    }
     this.toggleNavbar = () => {
       $mdSidenav('right').toggle();
     };

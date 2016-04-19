@@ -3,6 +3,10 @@ export default {
   HOURS: "Hours",
   LOCATION: "Location",
   NAME: "Name",
+  SELECTED_LANG: "שפה נוכחית",
+  CURRENT_LANG: "English",
+  LANG_HE: "עברית",
+  LANG_EN: "English",
   DATE_PICKER: {
     previousMonth: "Previous Month",
     nextMonth: "Next Month",

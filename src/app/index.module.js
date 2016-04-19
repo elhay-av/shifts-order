@@ -9,6 +9,7 @@ import { SettingsController } from '../app/views/settings/SettingsController.js'
 import { Storage } from '../app/components/storage';
 
 angular.module('shiftsOrder', [
+  'ngLocale',
   'ngAnimate',
   'ngCookies',
   'ngSanitize',

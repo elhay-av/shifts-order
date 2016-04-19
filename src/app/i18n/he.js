@@ -3,6 +3,10 @@ export default {
   HOURS: "שעות",
   LOCATION: "מקום",
   NAME: "שם",
+  SELECTED_LANG: "Selected language",
+  CURRENT_LANG: "עברית",
+  LANG_HE: "עברית",
+  LANG_EN: "English",
   DATE_PICKER: {
     previousMonth: "חודש קודם",
     nextMonth: "חודש הבא",

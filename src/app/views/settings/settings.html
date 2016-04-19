@@ -1,1 +1,6 @@
-settings
+<p><span translate="SELECTED_LANG"></span>: <b class="radioValue" translate="CURRENT_LANG"></b> </p>
+<md-radio-group ng-model="settings.langGroup" ng-change="settings.replaceLang()">
+  <md-radio-button aria-label="he" value="he"><span translate="LANG_HE"></span></md-radio-button>
+  <md-radio-button aria-label="en" value="en"><span translate="LANG_EN"></span></md-radio-button>
+</md-radio-group>
+<hr />

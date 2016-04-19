@@ -5,7 +5,7 @@ const navigatorLang = () => {
   return navigator.language.split('-')[0];
 };
 
-import './i18n/angular-locale_he-il.js';
+import angularHe from './i18n/angular-locale_he-il.js';
 
 export function config (
   $logProvider,
@@ -13,7 +13,8 @@ export function config (
   localStorageServiceProvider,
   moment,
   $translateProvider,
-  $mdThemingProvider
+  $mdThemingProvider,
+  $provide
 ) {
   'ngInject';
   $mdThemingProvider.theme('default')
@@ -43,6 +44,10 @@ export function config (
   $translateProvider.useSanitizeValueStrategy('');
 
   moment.locale($translateProvider.use());
+
+  if($translateProvider.use() === 'he') {
+    angularHe($provide);
+  }
 
   // Set options third-party lib
   toastrConfig.allowHtml = true;
