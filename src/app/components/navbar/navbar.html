@@ -3,13 +3,13 @@
   <md-toolbar class="md-theme-indigo">
     <div layout="row" layout-align="end center">
       <div layout="column">
-        <md-button class="md-icon-button md-primary" aria-label="Settings" ui-sref="home.settings"
+        <md-button class="md-icon-button md-primary no-print" aria-label="Settings" ui-sref="home.settings"
                    ng-hide="main.$state.includes('home.settings')">
           <md-icon md-font-icon="material-icons" ng-style="{color: 'white'}">
             settings
           </md-icon>
         </md-button>
-        <md-button class="md-icon-button md-primary" aria-label="Settings" ng-click="main.goToTodatyShift()"
+        <md-button class="md-icon-button md-primary no-print" aria-label="Settings" ng-click="main.goToTodatyShift()"
                    ng-hide="main.$state.includes('home.shift')">
           <md-icon md-font-icon="material-icons" ng-style="{color: 'white'}">
             arrow_back

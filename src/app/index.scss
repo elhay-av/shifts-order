@@ -59,9 +59,6 @@ html {
   size: 840+840px 1188+1188px;
 }
 @media print {
-  body {
-    font-size: 10px;
-  }
   .no-print {
     display: none !important;
   }
