@@ -6,3 +6,6 @@ coverage/
 .tmp/
 dist/
 npm-debug.log
+.DS_Store
+app
+installer

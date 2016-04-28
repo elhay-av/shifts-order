@@ -2,14 +2,62 @@
   "name": "shiftsOrder",
   "version": "0.0.0",
   "productName": "Shifts-order",
+  "description": "Shifts order app",
+  "author": {
+    "name": "Elhay Avihezer",
+    "email": "elhayav@gmail.com",
+    "url": "https://github.com/elhay-av"
+  },
   "dependencies": {
+    "electron-squirrel-startup": "^0.1.4",
     "electron-json-storage": "^2.0.0"
   },
   "main": "dist/main.js",
+  "build": {
+    "app-bundle-id": "elhay.shift.app",
+    "app-category-type": "public.app-category.productive",
+    "iconUrl": "https://raw.githubusercontent.com/elhay-av/shifts-order/master/src/favicon.ico",
+    "asar": false,
+    "productName": "Shifts-order",
+    "osx": {
+      "app-bundle-id": "elhay.shift.app",
+      "app-category-type": "public.app-category.productive",
+      "title": "Shifts order app",
+      "icon-size": 128,
+      "contents": [
+        {
+          "x": 355,
+          "y": 125,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 155,
+          "y": 125,
+          "type": "file"
+        }
+      ]
+    },
+    "win": {
+      "title": "Shifts order app",
+      "icon": "assets/images/favico.ico"
+    }
+  },
+  "directories": {
+    "output": "./installer"
+  },
   "scripts": {
     "start": "electron dist/main.js",
-    "build:all": "electron-packager . --all --overwrite --prune --ignore=src --ignore=e2e --ignore=gulp",
-    "test": "gulp test"
+    "sign": "export CSC_NAME=\"co.il.elhay.shifts-order:elhay\"",
+    "test": "gulp test",
+    "clean": "rm -rf ./installer && rm -rf ./app",
+    "compile": "gulp && cp -r dist/. app/ && cp app-package.json app/package.json",
+    "pre-build": "npm run clean && npm run compile && npm run sign",
+    "postinstall": "install-app-deps",
+    "pack": "npm run pre-build && build",
+    "dist": "npm run pre-build && build",
+    "dist:win32": "npm run pre-build && build --platform win32 --arch ia32",
+    "dist:win64": "npm run pre-build && build --platform win32 --arch x64"
   },
   "devDependencies": {
     "babel-core": "~6.7.4",
@@ -19,6 +67,7 @@
     "browser-sync-spa": "~1.0.3",
     "chalk": "~1.1.1",
     "del": "~2.0.2",
+    "electron-builder": "^3.6.1",
     "electron-packager": "^6.0.2",
     "electron-prebuilt": "^0.36.0",
     "eslint-loader": "~1.1.0",

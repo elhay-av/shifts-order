@@ -1,0 +1,17 @@
+{
+  "name": "shiftsOrder",
+  "version": "0.0.0",
+  "productName": "Shifts-order",
+  "description": "Shifts order app",
+  "author": {
+    "name": "Elhay Avihezer",
+    "email": "elhayav@gmail.com",
+    "url": "https://github.com/elhay-av"
+  },
+  "dependencies": {
+    "electron-json-storage": "^2.0.0",
+    "electron-squirrel-startup": "^0.1.4"
+  },
+  "main": "main.js",
+  "license": "MIT"
+}
